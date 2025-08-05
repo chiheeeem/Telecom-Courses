@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ST S2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
+
+
+  <style>
+    body.menu-open {
+      background-color: #525252;
+      color: #f6d4b1;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -100vw;
+      height: 100vh;
+      width: 100vw;
+      background-color: #525252;
+      color: #f6d4b1;
+      transition: left 0.3s ease;
+      z-index: 9999;
+      font-family: 'Press Start 2P', monospace;
+      padding: 70px 20px 20px 20px;
+    }
+
+    #sidebarToggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1100;
+      background-color: #525252;
+      color: #f6d4b1;
+      border: none;
+      padding: 6px 20px;
+      cursor: pointer;
+      border-radius: 0;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    #sidebarToggle svg rect {
+      height: 6px;
+      fill: #f6d4b1;
+    }
+
+    #closeSidebar {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      color: #f6d4b1;
+      cursor: pointer;
+    }
+
+    #sidebar a {
+      display: block;
+      margin: 15px 0;
+      padding: 12px;
+      color: #f6d4b1;
+      text-align: center;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    #sidebar a:hover {
+      background-color: #444;
+      transform: translateY(-2px);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #525252;
+      color: #f6d4b1;
+      padding: 40px 20px;
+    }
+
+    h1, .lead {
+      font-family: 'Press Start 2P', monospace;
+      color: #f6d4b1;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .lead {
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .accordion-button {
+      font-family: 'Press Start 2P', monospace;
+      background-color: #f6d4b1;
+      color: #525252;
+      border: 3px solid #525252;
+      font-size: 12px;
+      padding: 18px;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: #e5c9a4;
+    }
+
+.accordion-body a {
+  display: block;
+  padding: 6px 0;
+  color: #f6d4b1;
+  font-size: 12px;
+  text-decoration: none;
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing: 1px;
+}
+
+
+    .accordion-item {
+      border: none;
+      margin-bottom: 20px;
+      background-color: #383838;
+      border-radius: 10px;
+    }
+
+    .accordion-body {
+      background-color: #383838;
+    }
+
+.back-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f6d4b1;
+  color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0 #1a1a1a;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 2px 0 #1a1a1a;
+}
+
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <script>
+  // Redirect to Coming Soon unless ?admin is in the URL
+  if (!window.location.search.includes("admin")) {
+    window.location.href = "../../soon.html";
+  }
+</script>
+
+
+<button id="sidebarToggle" aria-label="Toggle menu">
+  <svg width="36" height="24" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect y="0" width="36" height="6"/>
+    <rect y="9" width="36" height="6"/>
+    <rect y="18" width="36" height="6"/>
+  </svg>
+</button>
+
+<div id="sidebar">
+  <h4>MENU</h4>
+  <button id="closeSidebar" aria-label="Close menu">✖</button>
+  <a href="../../index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="../../pages/faq/index.html"><i class="fas fa-question-circle"></i> FAQ</a>
+  <a href="#" data-specialty="rt"><i class="fas fa-network-wired"></i> RT</a>
+  <a href="#" data-specialty="st"><i class="fas fa-satellite-dish"></i> ST</a>
+  <a href="../../pages/contact/index.html"><i class="fas fa-envelope"></i> Contact me !</a>
+</div>
+
+
+<div class="container text-center">
+  <h1>ST - Systèmes Télécom S2</h1>
+  <p class="lead">Wch tsh9 l3ziz</p>
+
+  <div class="accordion" id="modulesAccordion">
+
+      <div class="accordion-item">
+      <h2 class="accordion-header" id="heading1">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+          Communication numérique avancée
+        </button>
+      </h2>
+      <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+        <div class="accordion-body">
+          <a href="#">Cours 1</a>
+          <a href="#">Cours 2</a>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+          Routage IP
+        </button>
+      </h2>
+      <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+        <div class="accordion-body">
+          <a href="#">Cours 1</a>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+          Traitement de signal avancé
+        </button>
+      </h2>
+      <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+        <div class="accordion-body">
+          <a href="#">Cours 1</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading4">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+          Systéme linux
+        </button>
+      </h2>
+      <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+        <div class="accordion-body">
+          <a href="#">Cours 1</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading5">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+          Normes et protocoles
+        </button>
+      </h2>
+      <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+        <div class="accordion-body">
+          <a href="#">Cours 1</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading6">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6">
+          Python orienté objets
+        </button>
+      </h2>
+      <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+        <div class="accordion-body">
+          <a href="#">Cours 1</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading7">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7">
+          Anglais technique et terminologie
+        </button>
+      </h2>
+      <div id="collapse7" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+        <div class="accordion-body">
+          <a href="#">Cours 1</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading8">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8">
+          Travaux pratiques
+        </button>
+      </h2>
+      <div id="collapse8" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+        <div class="accordion-body">
+          <a href="#">TP 1</a>
+          <a href="#">TP 2</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <br>
+  <a href="../../index.html" class="back-button"><i class="fas fa-home"></i></a>
+<div class="modal fade" id="semesterModal" tabindex="-1" aria-labelledby="semesterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center" style="background-color: #525252; color: #f6d4b1; font-family: 'Press Start 2P', monospace;">
+        <div class="modal-header border-0">
+          <h5 class="modal-title w-100">Choose Semester</h5>
+        </div>
+        <div class="modal-body">
+          <p>Which semester do you want?</p>
+          <div class="d-flex justify-content-around mt-3">
+            <button class="btn btn-outline-light" id="btnS1">S1</button>
+            <button class="btn btn-outline-light" id="btnS2">S2</button>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-link text-light" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const toggleButton = document.getElementById("sidebarToggle");
+  const sidebar = document.getElementById("sidebar");
+  const closeBtn = document.getElementById("closeSidebar");
+  const body = document.body;
+
+  toggleButton.addEventListener("click", () => {
+    const isOpen = sidebar.style.left === "0px";
+    sidebar.style.left = isOpen ? "-100vw" : "0px";
+    body.classList.toggle("menu-open", !isOpen);
+  });
+
+  closeBtn.addEventListener("click", () => {
+    sidebar.style.left = "-100vw";
+    body.classList.remove("menu-open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (sidebar.style.left === "0px" &&
+        !sidebar.contains(e.target) &&
+        !toggleButton.contains(e.target)) {
+      sidebar.style.left = "-100vw";
+      body.classList.remove("menu-open");
+    }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let selectedSpecialty = '';
+  const semesterModal = new bootstrap.Modal(document.getElementById('semesterModal'));
+
+  document.querySelectorAll('a[data-specialty]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      selectedSpecialty = this.getAttribute('data-specialty');
+
+      sidebar.style.left = "-100vw";
+      body.classList.remove("menu-open");
+
+      semesterModal.show();
+    });
+  });
+
+  document.getElementById('btnS1').addEventListener('click', () => {
+    if (selectedSpecialty) {
+      window.location.href = `../../specialties/${selectedSpecialty.toLowerCase()}/s1.html`;
+    }
+  });
+
+  document.getElementById('btnS2').addEventListener('click', () => {
+    if (selectedSpecialty) {
+      window.location.href = `../../specialties/${selectedSpecialty.toLowerCase()}/s2.html`;
+    }
+  });
+</script>
+
+</body>
+</html>
