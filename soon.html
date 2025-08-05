@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coming Soon</title>
+  <link rel="icon" href="../../favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #525252;
+      color: #f6d4b1;
+      font-family: 'Press Start 2P', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #f6d4b1;
+      border: 2px dashed #f6d4b1;
+      padding: 10px 20px;
+      transition: background 0.3s;
+    }
+
+    a:hover {
+      background-color: #f6d4b1;
+      color: #525252;
+    }
+
+    .glitch {
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; transform: translateX(2px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="glitch">PAGE NOT READY</h1>
+  <p> Roht(i) b3id!.<br>Check back soon </p>
+  <a href="index.html">Return to Homepage</a>
+</body>
+</html>
