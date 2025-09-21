@@ -249,6 +249,52 @@
       color: #f6d4b1;
       cursor: pointer;
     }
+    
+    .bios-box {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  background-color: #525252; /* your theme’s dark gray */
+  color: #f6d4b1; /* your theme’s sand color */
+  padding: 20px;
+  border: 2px dashed #f6d4b1; /* dashed retro border */
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+/* keep list tidy */
+.bios-box ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.bios-box ul li {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.bios-box .file-name {
+  flex: 1;              /* take all available space */
+  white-space: nowrap;  /* stay on one line */
+  overflow: hidden;     /* prevent wrapping */
+}
+
+.bios-box a {
+  color: #f6d4b1;
+  text-decoration: none;
+  margin-left: 12px;    /* little space from text */
+  flex-shrink: 0;       /* don’t shrink the button */
+}
+
+.bios-box a:hover {
+  text-decoration: underline;
+}
+
+}
+
+
 
     #sidebar a {
       display: block;
@@ -329,6 +375,23 @@
       </div>
     </div>
   </main>
+  
+<section class="container my-5 text-center">
+  <h2 class="mb-4" style="font-family: 'Press Start 2P', monospace;">New stuff !</h2>
+  <div class="bios-box text-start">
+    <ul class="list-unstyled m-0">
+      <li>
+        &gt; <span class="file-name">Emploi du temps RT </span>
+        <a href="Emplois-du-temps-M1-RT.pdf" download>[DOWNLOAD]</a>
+      </li>
+      <li>
+        &gt; <span class="file-name">Emploi du temps ST</span>
+        <a href="Emplois-du-temps-M1-ST.pdf" download>[DOWNLOAD]</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
 
   <footer class="text-center py-3 bg-dark text-light">
     <small>&copy; 2025 Chihem. Fiha khir !</small>  
